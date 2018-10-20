@@ -48,7 +48,7 @@ function genEnvMap(envData) {
   // create environment
   var txtrScale = 12742; // diameter of earth
   var txtrWidth = txtrScale;
-  var txtrHeight = txtrScale;
+  var txtrHeight = txtrScale/2;
   var txtrData = new Uint8Array(4 * txtrWidth*txtrHeight);
 
   for (var w = 0; w < txtrWidth; w++) {
@@ -63,14 +63,31 @@ function genEnvMap(envData) {
 
   for (var i = 0; i < envData.length; i++) {
     var wpos = (txtrWidth/2.0 + (envData[i][0]*txtrWidth/360.0))%txtrWidth;
-    var hpos = (txtrHeight/2.0 + (envData[i][1]*txtrHeight/360.0))%txtrHeight;
+    var hpos = (txtrHeight/2.0 + (envData[i][1]*txtrHeight/180.0))%txtrHeight;
 
-    for (var wzone = -200; wzone < 200; wzone++) { // draw a box around the point
-      for (var hzone = -200; hzone < 200; hzone++) {
-        if (Math.sqrt((wzone*wzone) + (hzone*hzone)) <= 200) { // change box into point
-          var stride = Math.floor((Math.floor(((hzone+hpos)%txtrHeight)*txtrWidth) + ((wzone+wpos)%txtrWidth))) * 4;
-          txtrData[stride + 3] = envData[i][2]*255;
+    var radius = 50;
+    //var wradius = hradius;// /(Math.cos(Math.PI*(envData[i][1])/180));
+    for (var hzone = -radius; hzone < radius; hzone++) { // draw a box around the point
+      var maxw = 0;
+      for (var wzone = -radius; wzone < radius; wzone++) {
+        if (Math.sqrt((wzone*wzone) + (hzone*hzone)) <= radius) { // change box into point
+          if (wzone > maxw) {
+            maxw = wzone;
+          }
         }
+      }
+      var wdist = maxw;
+      var wscale = 1/Math.sin(Math.PI*((hzone+hpos)%txtrHeight)/txtrHeight);
+      // scale wdist
+      wdist *= wscale;
+      if (wdist > txtrWidth/2) {
+        wdist = txtrWidth/2;
+      }
+      var eh = Math.floor(hzone+hpos)*txtrWidth;
+      for (var wzone = -wdist; wzone < wdist; wzone++) {
+        var ew = Math.floor(wzone+wpos)%txtrWidth;
+        var stride = (eh + ew) * 4;
+        txtrData[stride + 3] = envData[i][2]*255;
       }
     }
   }
@@ -91,8 +108,8 @@ function genEnvMap(envData) {
 
   animate();
 }
-var evd = [[360,0,0.9], [0.0,20,0.8],
-          [0,140,0.4], [180,0,0.8]];
+var evd = [[0,0,0.9], [180,-88,0.8],
+          [0,-88,0.9], [0,0,0.8]];
 genEnvMap(evd);
 
 function animate() {
