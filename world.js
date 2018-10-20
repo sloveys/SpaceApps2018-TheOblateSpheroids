@@ -11,6 +11,12 @@ renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
 var controls = new THREE.OrbitControls(camera);
+controls.enablePan = false;
+var blockedAngle = 0.25;
+controls.minPolarAngle = blockedAngle;
+controls.maxPolarAngle = Math.PI - blockedAngle;
+controls.minDistance = 1.1;
+controls.maxDistance = 4;
 camera.position.set(2, 0, 0);
 controls.update();
 
@@ -39,5 +45,5 @@ sun.position.y = 0;
 sun.position.z = 10;
 scene.add(sun);
 
-var ambiLight = new THREE.AmbientLight(0x404040);
+var ambiLight = new THREE.AmbientLight(0x606060);
 scene.add(ambiLight);
