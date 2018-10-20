@@ -40,29 +40,45 @@ var ambiLight = new THREE.AmbientLight(0x606060);
 scene.add(ambiLight);
 
 var environment = null;
-function genEnvMap() {
+function genEnvMap(envData) {
   if (environment != null) {
     scene.remove(environment);
     environment = null;
   }
   // create environment
-  var envScale = 1024;
-  var envWidth = 2*envScale;
-  var envHeight = envScale;
-  var envSize = envWidth*envHeight;
-  var envData = new Uint8Array(4 * envSize);
+  var txtrScale = 12742; // diameter of earth
+  var txtrWidth = txtrScale;
+  var txtrHeight = txtrScale;
+  var txtrData = new Uint8Array(4 * txtrWidth*txtrHeight);
 
-  for (var i = 0; i < envSize; i++) {
-  	var stride = i * 4;
-  	envData[stride] = 0; // r; rgb is 0...255
-  	envData[stride + 1] = 0; // g
-    envData[stride + 2] = 200; // b
-    envData[stride + 3] = 100; // a
+  for (var w = 0; w < txtrWidth; w++) {
+    for (var h = 0; h < txtrHeight; h++) {
+    	var stride = (h*txtrWidth + w) * 4;
+    	txtrData[stride] = 255; // r; rgb is 0...255
+    	txtrData[stride + 1] = 0; // g
+      txtrData[stride + 2] = 0; // b
+      txtrData[stride + 3] = 0; // a
+    }
   }
-  var envTexture = new THREE.DataTexture(envData, envWidth, envHeight, THREE.RGBAFormat);
+
+  for (var i = 0; i < envData.length; i++) {
+    var wpos = (txtrWidth/2.0 + (envData[i][0]*txtrWidth/360.0))%txtrWidth;
+    var hpos = (txtrHeight/2.0 + (envData[i][1]*txtrHeight/360.0))%txtrHeight;
+
+    for (var wzone = -200; wzone < 200; wzone++) { // draw a box around the point
+      for (var hzone = -200; hzone < 200; hzone++) {
+        if (Math.sqrt((wzone*wzone) + (hzone*hzone)) <= 200) { // change box into point
+          var stride = Math.floor((Math.floor(((hzone+hpos)%txtrHeight)*txtrWidth) + ((wzone+wpos)%txtrWidth))) * 4;
+          txtrData[stride + 3] = envData[i][2]*255;
+        }
+      }
+    }
+  }
+
+  var envTexture = new THREE.DataTexture(txtrData, txtrWidth, txtrHeight, THREE.RGBAFormat);
   envTexture.needsUpdate = true;
 
-  var envGeometry = new THREE.SphereGeometry(1.05, 64, 64);
+  var envGeometry = new THREE.SphereGeometry(1.03, 64, 64);
   var envMaterial = new THREE.MeshPhongMaterial({
     map: envTexture,
     shininess: 0.5,
@@ -75,7 +91,9 @@ function genEnvMap() {
 
   animate();
 }
-genEnvMap();
+var evd = [[360,0,0.9], [0.0,20,0.8],
+          [0,140,0.4], [180,0,0.8]];
+genEnvMap(evd);
 
 function animate() {
   requestAnimationFrame(animate);
