@@ -20,14 +20,6 @@ controls.maxDistance = 4;
 camera.position.set(2, 0, 0);
 controls.update();
 
-
-function animate() {
-  requestAnimationFrame(animate);
-  controls.update();
-  renderer.render(scene, camera);
-}
-animate();
-
 var sphereGeometry = new THREE.SphereGeometry(1.0, 64, 64);
 //var sphereMaterial = new THREE.MeshLambertMaterial({color: 0x000fff});
 var sphereMaterial = new THREE.MeshPhongMaterial({
@@ -40,10 +32,21 @@ sphere.position.x = 0;
 scene.add(sphere);
 
 var sun = new THREE.PointLight(0xFFFFFF); // perhaps replace this with the type of light the sun produces?
-sun.position.x = 10;
+sun.position.x = 100;
 sun.position.y = 0;
-sun.position.z = 10;
+sun.position.z = 0;
+var sunRotation = 0;
 scene.add(sun);
 
 var ambiLight = new THREE.AmbientLight(0x606060);
 scene.add(ambiLight);
+
+function animate() {
+  requestAnimationFrame(animate);
+  sunRotation += 0.001
+  sun.position.x = Math.cos(sunRotation) * 100;
+  sun.position.z = Math.sin(sunRotation) * 100;
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
