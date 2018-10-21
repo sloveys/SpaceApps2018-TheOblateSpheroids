@@ -7,20 +7,6 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(viewAngle, width/height, nearClipping, farClipping);
 var renderer = new THREE.WebGLRenderer();
 
-/*
-var mols = ["C2H2", "C2H6", "CCl2F2", "CCl3F", "CCl4", "CH3Cl", "CH4",
-            "CHF2Cl", "ClONO2", "CO", "COF2", "H2CO", "H20", "H2O2", "HCL"];
-
-var molSelect = document.getElementById("Molecules");
-for (var i = 0; i < mols.length; i++) {
-  var newOption = document.createElement("option");
-  newOption.text = mols[i];
-  newOption.value = mols[i];
-  molSelect.appendChild(newOption);
-}
-var yearSelect = document.getElementById("Years");
-*/
-
 var fileSelect = document.getElementById("FileSelect");
 fileSelect.addEventListener('change', getCSV);
 function getCSV() {
@@ -29,15 +15,8 @@ function getCSV() {
 
     var reader = new FileReader();
     reader.onload = loadHandler;
-    //reader.onerror = errorHandler;
 
     reader.readAsText(file);
-    /*d3.csv(file, function(data) {
-      genEnvMap([[0,0,0.8]]);
-      //loadHandler(data);
-    }, function(error, rows) {
-    });*/
-    //genEnvMap([[0,0,0.9]]);
   }
 }
 
@@ -56,7 +35,6 @@ function loadHandler(file) {
     }
     if (newMeas[2] < 0) {
       newMeas[2] = 0;
-      continue;
     }
     measurments.push(newMeas);
   }
@@ -115,7 +93,7 @@ function genEnvMap(envData) {
   for (var w = 0; w < txtrWidth; w++) {
     for (var h = 0; h < txtrHeight; h++) {
     	var stride = (h*txtrWidth + w) * 4;
-    	txtrData[stride] = 255; // r; rgb is 0...255
+    	txtrData[stride] = 0; // r; rgb is 0...255
     	txtrData[stride + 1] = 0; // g
       txtrData[stride + 2] = 0; // b
       txtrData[stride + 3] = 0; // a
@@ -127,7 +105,6 @@ function genEnvMap(envData) {
     var hpos = (txtrHeight/2.0 + (envData[i][1]*txtrHeight/180.0))%txtrHeight;
 
     var radius = 50;
-    //var wradius = hradius;// /(Math.cos(Math.PI*(envData[i][1])/180));
     for (var hzone = -radius; hzone < radius; hzone++) { // draw a box around the point
       var maxw = 0;
       for (var wzone = -radius; wzone < radius; wzone++) {
@@ -148,7 +125,9 @@ function genEnvMap(envData) {
       for (var wzone = -wdist; wzone < wdist; wzone++) {
         var ew = Math.floor(wzone+wpos)%txtrWidth;
         var stride = (eh + ew) * 4;
-        txtrData[stride + 3] = envData[i][2]*255;
+        txtrData[stride] = envData[i][2]*255;
+        txtrData[stride+1] = (1-envData[i][2])*255;
+        txtrData[stride+3] = 200;
       }
     }
   }
