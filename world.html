@@ -2,24 +2,52 @@
 <html>
 	<head>
 		<meta charset=utf-8>
-		<title>World App</title>
-		<link rel="world" href="world.css">
+		<title>Climosphere</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="three.js-master\build\three.js"></script>
 		<script src="three.js-master\examples\js\controls\OrbitControls.js"></script>
 		<style>
-			body { margin: 0; }
-			canvas {
-				width: 100%;
-  			height: 100%;
-  			display: block;
-			  position: fixed;
-			  top: 0;
-			  left: 0;
-			  z-index: 0;
+			canvas { margin: 0; width: 100vw; height: 100vh; display: block; }
+			.container {
+				z-index: 1;
+		  	position: relative;
+		  	text-align: center;
+		  	color: white;
+				pointer-events: none;
+			}
+			.world {
+				z-index: -1;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    margin: 0;
+		    padding: 0;
+			}
+			.title {
+				position: absolute;
+		    top: 20px;
+		    left: 10px;
+				margin: 0;
+				padding: 0;
+			}
+			.mol {
+				z-index: -2;
+				position: absolute;
+		    top: 30px;
+		    right: 10px;
 			}
 		</style>
 	</head>
   <body style="margin: 0; display: block;">
-    <script class="world" src="world.js"></script>
+		<div class="container">
+			<h2 class="title">Climosphere</h2>
+			<select class="mol" name="Molecules" id="Molecules">
+			</select>
+	    <script class="world" src="world.js"></script>
+		</div>
   </body>
 </html>

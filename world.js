@@ -7,6 +7,18 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(viewAngle, width/height, nearClipping, farClipping);
 var renderer = new THREE.WebGLRenderer();
 
+var mols = ["test", "test 2"];
+//var fs = require('fs');
+//var folders = fs.readdirSync('/data/OUTPUT/');
+
+var select = document.getElementById("Molecules");
+for (var i = 0; i < mols.length; i++) {
+  var newOption = document.createElement("option");
+  newOption.text = mols[i];
+  newOption.value = 'some value if you want it';
+  select.appendChild(newOption);
+}
+
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
