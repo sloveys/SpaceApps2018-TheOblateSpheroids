@@ -3,11 +3,10 @@
 	<head>
 		<meta charset=utf-8>
 		<title>Climosphere</title>
-		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	--><script src="three.js-master\build\three.js"></script>
-		<!--script src="https://d3js.org/d3.v5.min.js"></script-->
+		<script src="three.js-master\build\three.js"></script>
 		<script src="three.js-master\examples\js\controls\OrbitControls.js"></script>
 		<link rel="C2H6" href="data\OUTPUT\C2H6\2007">
 		<style>
@@ -22,8 +21,8 @@
 		    position: absolute;
 		    top: 0;
 		    left: 0;
-		    width: 100%;
-		    height: 100%;
+		    width: 100vw;
+		    height: 100vh;
 		    margin: 0;
 		    padding: 0;
 			}
@@ -45,13 +44,11 @@
 		</style>
 	</head>
   <body>
-		<h2 class="title">Climosphere</h2>
-		<select class="mol" name="Molecules" id="Molecules">
-		</select>
-		<select style="right: 100px;" class="mol" name="Years" id="Years">
-			<option value="2007">2007</option>
-			<option value="2008">2008</option>
-		</select>
-    <script class="world" src="world.js"></script>
+		<h2 class="title" id="Title">Climosphere</h2>
+		<div class="mol">
+			<label style="color: white;">Choose the data file you would like to view.</label>
+			<input type="file" name="Select Data" id="FileSelect">
+		</div>
+		<script class="world" src="world.js"></script>
   </body>
 </html>

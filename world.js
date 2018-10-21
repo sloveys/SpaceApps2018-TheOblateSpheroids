@@ -7,6 +7,7 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(viewAngle, width/height, nearClipping, farClipping);
 var renderer = new THREE.WebGLRenderer();
 
+/*
 var mols = ["C2H2", "C2H6", "CCl2F2", "CCl3F", "CCl4", "CH3Cl", "CH4",
             "CHF2Cl", "ClONO2", "CO", "COF2", "H2CO", "H20", "H2O2", "HCL"];
 
@@ -18,32 +19,35 @@ for (var i = 0; i < mols.length; i++) {
   molSelect.appendChild(newOption);
 }
 var yearSelect = document.getElementById("Years");
+*/
 
+var fileSelect = document.getElementById("FileSelect");
+fileSelect.addEventListener('change', getCSV);
 function getCSV() {
   if (window.FileReader) {
-    var mol = "C2H6";//molSelect.options[molSelect.selectedIndex].value;
-    var year = "2007";//yearSelect.options[yearSelect.selectedIndex].value;
-    var fileName = "/data/OUTPUT/" + mol + "/" + year + ".csv";
+    var file = fileSelect.files[0];
 
-    /*var reader = new FileReader();
+    var reader = new FileReader();
     reader.onload = loadHandler;
-    reader.onerror = errorHandler;
+    //reader.onerror = errorHandler;
 
     reader.readAsText(file);
-    d3.csv(file, function(data) {
+    /*d3.csv(file, function(data) {
       genEnvMap([[0,0,0.8]]);
       //loadHandler(data);
     }, function(error, rows) {
     });*/
-
+    //genEnvMap([[0,0,0.9]]);
   }
 }
 
-function loadHandler(data) {
+function loadHandler(file) {
+  var data = file.target.result;
   var lines = data.split(/\r\n|\n/);
   var minMeas = 0;
   var maxMeas = 0;
   var measurments = [];
+
   for (var i=0; i < lines.length; i++) {
     var row = lines[i].split(",");
     newMeas = [Number(row[1]), Number(row[2]), Number(row[0])];
@@ -52,13 +56,16 @@ function loadHandler(data) {
     }
     if (newMeas[2] < 0) {
       newMeas[2] = 0;
+      continue;
     }
     measurments.push(newMeas);
   }
-  for (var i=0; i < measurments.length; i++) {
+  for (var i=0; i < measurments.length && maxMeas > 0; i++) {
     measurments[i][2] /= maxMeas;
   }
+
   genEnvMap(measurments);
+  return;
 }
 
 renderer.setSize(width, height);
@@ -155,14 +162,14 @@ function genEnvMap(envData) {
     shininess: 0.5,
     transparent: true
   });
-  var environment = new THREE.Mesh(envGeometry, envMaterial);
+  environment = new THREE.Mesh(envGeometry, envMaterial);
   environment.position.z = 0;
   environment.position.x = 0;
   scene.add(environment);
 
   animate();
 }
-getCSV();
+//getCSV();
 
 function animate() {
   requestAnimationFrame(animate);
