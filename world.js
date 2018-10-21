@@ -15,14 +15,14 @@ controls.enablePan = false;
 var blockedAngle = 0.25;
 controls.minPolarAngle = blockedAngle;
 controls.maxPolarAngle = Math.PI - blockedAngle;
-controls.minDistance = 1.1;
+controls.minDistance = 1.2;
 controls.maxDistance = 4;
 camera.position.set(2, 0, 0);
 controls.update();
 
 var earthGeometry = new THREE.SphereGeometry(1.0, 64, 64);
 var earthMaterial = new THREE.MeshPhongMaterial({
-  map: THREE.ImageUtils.loadTexture('Assets/2_no_clouds_8k.jpg'),
+  map: THREE.ImageUtils.loadTexture('assets/2_no_clouds_8k.jpg'),
   shininess: 0.5});
 var earth = new THREE.Mesh(earthGeometry, earthMaterial);
 earth.position.z = 0;
@@ -36,7 +36,7 @@ sun.position.z = 0;
 var sunRotation = 0;
 scene.add(sun);
 
-var ambiLight = new THREE.AmbientLight(0x606060);
+var ambiLight = new THREE.AmbientLight(0x808080);
 scene.add(ambiLight);
 
 var environment = null;
@@ -108,8 +108,8 @@ function genEnvMap(envData) {
 
   animate();
 }
-var evd = [[0,0,0.9], [180,-88,0.8],
-          [0,-88,0.9], [0,0,0.8]];
+var evd = [[0,0,0.9], [180,-80,0.8],
+          [0,-80,0.4], [20,20,0.4]];
 genEnvMap(evd);
 
 function animate() {
