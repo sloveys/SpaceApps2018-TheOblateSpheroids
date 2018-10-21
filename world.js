@@ -8,15 +8,15 @@ var camera = new THREE.PerspectiveCamera(viewAngle, width/height, nearClipping, 
 var renderer = new THREE.WebGLRenderer();
 
 var fileSelect = document.getElementById("FileSelect");
+var molLable = document.getElementById("Molecule");
 fileSelect.addEventListener('change', getCSV);
 function getCSV() {
   if (window.FileReader) {
     var file = fileSelect.files[0];
-
     var reader = new FileReader();
     reader.onload = loadHandler;
-
     reader.readAsText(file);
+    molLable.innerHTML = file.name.split(".")[0];
   }
 }
 
@@ -126,7 +126,7 @@ function genEnvMap(envData) {
         var ew = Math.floor(wzone+wpos)%txtrWidth;
         var stride = (eh + ew) * 4;
         txtrData[stride] = envData[i][2]*255;
-        txtrData[stride+1] = (1-envData[i][2])*255;
+        txtrData[stride+2] = (1-envData[i][2])*255;
         txtrData[stride+3] = 200;
       }
     }
