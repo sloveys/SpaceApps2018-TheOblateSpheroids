@@ -1,0 +1,1230 @@
+             -----METADATA INFORMATION----                
+                    ----sr23713----       
+
+
+ACE-FTS-v2.2
+instrument = ACE-FTS_SCISAT-1
+data_type = Atmospheric Profile
+fill_value = -999.0
+missing_value = -888.0
+level_1_version = 1.3.0
+level_2_version = 2.2
+process_level = L2
+missing_value_definition = Profile values above the highest analyzed measurement are taken as a constant times the input guess profile
+_FillValue_value_definition = A fill value of -999 is used at each altitude where a retrieval is not performed
+vmr_unit_definition = Retrieved volume mixing ratio, parts per volume.  NOT ppm or ppb!
+occultation_name = sr23713
+event_type = sunrise
+date = 2008-01-07 20:21:25.09+00
+date_MJD2000 = 2928.8481
+latitude = 59.22
+longitude = -170.08
+beta_angle = -31.42
+start_timetag = 1250454000.0
+end_timetag = 1250454300.0
+start_time = 2008-01-07 20:20:50+00
+end_time = 2008-01-07 20:24:03+00
+
+
+Data-L2_1km_grid Variables:
+
+z
+Type = float32
+long_name = altitude
+units = km
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+P
+Type = float32
+long_name = pressure
+units = atm
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+T
+Type = float32
+long_name = temperature
+units = K
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+T_fit
+Type = int32
+long_name = True-false indicator of temperature retrieval
+units = 1
+Dimension: ('z',) = (150,)
+
+dens
+Type = float32
+long_name = Density
+units = cm^-3
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+H2O
+Type = float32
+long_name = water
+isotopologue_name = H (16)O H
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+H2O_err
+Type = float32
+long_name = water
+isotopologue_name = H (16)O H
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+O3
+Type = float32
+long_name = ozone
+isotopologue_name = (16)O (16)O (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+O3_err
+Type = float32
+long_name = ozone
+isotopologue_name = (16)O (16)O (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+N2O
+Type = float32
+long_name = nitrous oxide
+isotopologue_name = (14)N (14)N (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+N2O_err
+Type = float32
+long_name = nitrous oxide
+isotopologue_name = (14)N (14)N (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CO
+Type = float32
+long_name = carbon monoxide
+isotopologue_name = (12)C (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CO_err
+Type = float32
+long_name = carbon monoxide
+isotopologue_name = (12)C (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CH4
+Type = float32
+long_name = methane
+isotopologue_name = (12)C H4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CH4_err
+Type = float32
+long_name = methane
+isotopologue_name = (12)C H4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+NO
+Type = float32
+long_name = nitric oxide
+isotopologue_name = (14)N (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+NO_err
+Type = float32
+long_name = nitric oxide
+isotopologue_name = (14)N (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+NO2
+Type = float32
+long_name = nitrogen dioxide
+isotopologue_name = (14)N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+NO2_err
+Type = float32
+long_name = nitrogen dioxide
+isotopologue_name = (14)N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HNO3
+Type = float32
+long_name = nitric acid
+isotopologue_name = H (14)N (16)O3
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HNO3_err
+Type = float32
+long_name = nitric acid
+isotopologue_name = H (14)N (16)O3
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HF
+Type = float32
+long_name = hydrogen fluoride
+isotopologue_name = H (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HF_err
+Type = float32
+long_name = hydrogen fluoride
+isotopologue_name = H (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HCl
+Type = float32
+long_name = hydrogen chloride 
+isotopologue_name = H (35)Cl
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HCl_err
+Type = float32
+long_name = hydrogen chloride 
+isotopologue_name = H (35)Cl
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+OCS
+Type = float32
+long_name = carbonyl sulfide
+isotopologue_name = (16)O (12)C (32)S
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+OCS_err
+Type = float32
+long_name = carbonyl sulfide
+isotopologue_name = (16)O (12)C (32)S
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+N2O5
+Type = float32
+long_name = dinitrogen pentoxide
+isotopologue_name = (14)N2 (16)O5
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+N2O5_err
+Type = float32
+long_name = dinitrogen pentoxide
+isotopologue_name = (14)N2 (16)O5
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+ClONO2
+Type = float32
+long_name = chlorine nitrate
+isotopologue_name = (35)Cl (16)O N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+ClONO2_err
+Type = float32
+long_name = chlorine nitrate
+isotopologue_name = (35)Cl (16)O N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HCN
+Type = float32
+long_name = hydrogen cyanide
+isotopologue_name = H (12)C (14)N
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HCN_err
+Type = float32
+long_name = hydrogen cyanide
+isotopologue_name = H (12)C (14)N
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CH3Cl
+Type = float32
+long_name = methyl fluoride
+isotopologue_name = (12)C H3 (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CH3Cl_err
+Type = float32
+long_name = methyl fluoride
+isotopologue_name = (12)C H3 (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CF4
+Type = float32
+long_name = carbon tetrafluoride
+isotopologue_name = (12)C (19)F4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CF4_err
+Type = float32
+long_name = carbon tetrafluoride
+isotopologue_name = (12)C (19)F4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CCl2F2
+Type = float32
+long_name = CFC-12
+isotopologue_name = (12)C Cl (19)F2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CCl2F2_err
+Type = float32
+long_name = CFC-12
+isotopologue_name = (12)C Cl (19)F2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CCl3F
+Type = float32
+long_name = CFC-11
+isotopologue_name = (12)C Cl3 (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CCl3F_err
+Type = float32
+long_name = CFC-11
+isotopologue_name = (12)C Cl3 (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+COF2
+Type = float32
+long_name = fluorophosgene
+isotopologue_name = (12)C (16)O (19)F2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+COF2_err
+Type = float32
+long_name = fluorophosgene
+isotopologue_name = (12)C (16)O (19)F2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+C2H6
+Type = float32
+long_name = ethane
+isotopologue_name = (12)C2 H6
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+C2H6_err
+Type = float32
+long_name = ethane
+isotopologue_name = (12)C2 H6
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+C2H2
+Type = float32
+long_name = acetylene
+isotopologue_name = (12)C2 H2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+C2H2_err
+Type = float32
+long_name = acetylene
+isotopologue_name = (12)C2 H2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CHF2Cl
+Type = float32
+long_name = HCFC-22
+isotopologue_name = (12)C H (19)F2 Cl
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CHF2Cl_err
+Type = float32
+long_name = HCFC-22
+isotopologue_name = (12)C H (19)F2 Cl
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HCOOH
+Type = float32
+long_name = formic acid
+isotopologue_name = H (12)C (16)O (16)O H
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HCOOH_err
+Type = float32
+long_name = formic acid
+isotopologue_name = H (12)C (16)O (16)O H
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+SF6
+Type = float32
+long_name = sulfur hexafluoride
+isotopologue_name = (32)S (19)F6
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+SF6_err
+Type = float32
+long_name = sulfur hexafluoride
+isotopologue_name = (32)S (19)F6
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HO2NO2
+Type = float32
+long_name = peroxynitric acid
+isotopologue_name = H (16)O2 (14)N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+HO2NO2_err
+Type = float32
+long_name = peroxynitric acid
+isotopologue_name = H (16)O2 (14)N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+H2O2
+Type = float32
+long_name = hydrogen peroxide
+isotopologue_name = H2 (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+H2O2_err
+Type = float32
+long_name = hydrogen peroxide
+isotopologue_name = H2 (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+H2CO
+Type = float32
+long_name = formaldehyde
+isotopologue_name = H2 (12)C (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+H2CO_err
+Type = float32
+long_name = formaldehyde
+isotopologue_name = H2 (12)C (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CCl4
+Type = float32
+long_name = carbon tetrachloride
+isotopologue_name = (12)C Cl4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+CCl4_err
+Type = float32
+long_name = carbon tetrachloride
+isotopologue_name = (12)C Cl4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+N2
+Type = float32
+long_name = nitrogen
+isotopologue_name = (14)N2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+N2_err
+Type = float32
+long_name = nitrogen
+isotopologue_name = (14)N2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (150,)
+
+
+
+
+Data-L2_retreival_grid Variables:
+
+z
+Type = float32
+long_name = altitude
+units = km
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+P
+Type = float32
+long_name = pressure
+units = atm
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+T
+Type = float32
+long_name = temperature
+units = K
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+T_fit
+Type = int32
+long_name = True-false indicator of temperature retrieval
+units = 1
+Dimension: ('z',) = (36,)
+
+dens
+Type = float32
+long_name = Density
+units = cm^-3
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+H2O
+Type = float32
+long_name = water
+isotopologue_name = H (16)O H
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+H2O_err
+Type = float32
+long_name = water
+isotopologue_name = H (16)O H
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+O3
+Type = float32
+long_name = ozone
+isotopologue_name = (16)O (16)O (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+O3_err
+Type = float32
+long_name = ozone
+isotopologue_name = (16)O (16)O (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+N2O
+Type = float32
+long_name = nitrous oxide
+isotopologue_name = (14)N (14)N (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+N2O_err
+Type = float32
+long_name = nitrous oxide
+isotopologue_name = (14)N (14)N (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CO
+Type = float32
+long_name = carbon monoxide
+isotopologue_name = (12)C (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CO_err
+Type = float32
+long_name = carbon monoxide
+isotopologue_name = (12)C (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CH4
+Type = float32
+long_name = methane
+isotopologue_name = (12)C H4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CH4_err
+Type = float32
+long_name = methane
+isotopologue_name = (12)C H4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+NO
+Type = float32
+long_name = nitric oxide
+isotopologue_name = (14)N (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+NO_err
+Type = float32
+long_name = nitric oxide
+isotopologue_name = (14)N (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+NO2
+Type = float32
+long_name = nitrogen dioxide
+isotopologue_name = (14)N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+NO2_err
+Type = float32
+long_name = nitrogen dioxide
+isotopologue_name = (14)N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HNO3
+Type = float32
+long_name = nitric acid
+isotopologue_name = H (14)N (16)O3
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HNO3_err
+Type = float32
+long_name = nitric acid
+isotopologue_name = H (14)N (16)O3
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HF
+Type = float32
+long_name = hydrogen fluoride
+isotopologue_name = H (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HF_err
+Type = float32
+long_name = hydrogen fluoride
+isotopologue_name = H (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HCl
+Type = float32
+long_name = hydrogen chloride 
+isotopologue_name = H (35)Cl
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HCl_err
+Type = float32
+long_name = hydrogen chloride 
+isotopologue_name = H (35)Cl
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+OCS
+Type = float32
+long_name = carbonyl sulfide
+isotopologue_name = (16)O (12)C (32)S
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+OCS_err
+Type = float32
+long_name = carbonyl sulfide
+isotopologue_name = (16)O (12)C (32)S
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+N2O5
+Type = float32
+long_name = dinitrogen pentoxide
+isotopologue_name = (14)N2 (16)O5
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+N2O5_err
+Type = float32
+long_name = dinitrogen pentoxide
+isotopologue_name = (14)N2 (16)O5
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+ClONO2
+Type = float32
+long_name = chlorine nitrate
+isotopologue_name = (35)Cl (16)O N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+ClONO2_err
+Type = float32
+long_name = chlorine nitrate
+isotopologue_name = (35)Cl (16)O N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HCN
+Type = float32
+long_name = hydrogen cyanide
+isotopologue_name = H (12)C (14)N
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HCN_err
+Type = float32
+long_name = hydrogen cyanide
+isotopologue_name = H (12)C (14)N
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CH3Cl
+Type = float32
+long_name = methyl fluoride
+isotopologue_name = (12)C H3 (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CH3Cl_err
+Type = float32
+long_name = methyl fluoride
+isotopologue_name = (12)C H3 (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CF4
+Type = float32
+long_name = carbon tetrafluoride
+isotopologue_name = (12)C (19)F4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CF4_err
+Type = float32
+long_name = carbon tetrafluoride
+isotopologue_name = (12)C (19)F4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CCl2F2
+Type = float32
+long_name = CFC-12
+isotopologue_name = (12)C Cl (19)F2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CCl2F2_err
+Type = float32
+long_name = CFC-12
+isotopologue_name = (12)C Cl (19)F2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CCl3F
+Type = float32
+long_name = CFC-11
+isotopologue_name = (12)C Cl3 (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CCl3F_err
+Type = float32
+long_name = CFC-11
+isotopologue_name = (12)C Cl3 (19)F
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+COF2
+Type = float32
+long_name = fluorophosgene
+isotopologue_name = (12)C (16)O (19)F2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+COF2_err
+Type = float32
+long_name = fluorophosgene
+isotopologue_name = (12)C (16)O (19)F2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+C2H6
+Type = float32
+long_name = ethane
+isotopologue_name = (12)C2 H6
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+C2H6_err
+Type = float32
+long_name = ethane
+isotopologue_name = (12)C2 H6
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+C2H2
+Type = float32
+long_name = acetylene
+isotopologue_name = (12)C2 H2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+C2H2_err
+Type = float32
+long_name = acetylene
+isotopologue_name = (12)C2 H2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CHF2Cl
+Type = float32
+long_name = HCFC-22
+isotopologue_name = (12)C H (19)F2 Cl
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CHF2Cl_err
+Type = float32
+long_name = HCFC-22
+isotopologue_name = (12)C H (19)F2 Cl
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HCOOH
+Type = float32
+long_name = formic acid
+isotopologue_name = H (12)C (16)O (16)O H
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HCOOH_err
+Type = float32
+long_name = formic acid
+isotopologue_name = H (12)C (16)O (16)O H
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+SF6
+Type = float32
+long_name = sulfur hexafluoride
+isotopologue_name = (32)S (19)F6
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+SF6_err
+Type = float32
+long_name = sulfur hexafluoride
+isotopologue_name = (32)S (19)F6
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HO2NO2
+Type = float32
+long_name = peroxynitric acid
+isotopologue_name = H (16)O2 (14)N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+HO2NO2_err
+Type = float32
+long_name = peroxynitric acid
+isotopologue_name = H (16)O2 (14)N (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+H2O2
+Type = float32
+long_name = hydrogen peroxide
+isotopologue_name = H2 (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+H2O2_err
+Type = float32
+long_name = hydrogen peroxide
+isotopologue_name = H2 (16)O2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+H2CO
+Type = float32
+long_name = formaldehyde
+isotopologue_name = H2 (12)C (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+H2CO_err
+Type = float32
+long_name = formaldehyde
+isotopologue_name = H2 (12)C (16)O
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CCl4
+Type = float32
+long_name = carbon tetrachloride
+isotopologue_name = (12)C Cl4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+CCl4_err
+Type = float32
+long_name = carbon tetrachloride
+isotopologue_name = (12)C Cl4
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+N2
+Type = float32
+long_name = nitrogen
+isotopologue_name = (14)N2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+N2_err
+Type = float32
+long_name = nitrogen
+isotopologue_name = (14)N2
+units = 1
+missing_value = -888.0
+_FillValue = -999.0
+Dimension: ('z',) = (36,)
+
+
+
+
+Geometry Variables:
+
+z
+Type = float32
+long_name = altitude
+units = km
+Dimension: ('z',) = (0,)
+
+timestamp
+Type = float32
+long_name = UTC timestamp
+units = ISO8601
+Dimension: ('z',) = (0,)
+
+j2000_x
+Type = float32
+long_name = Spacecraft J2000 X Coordinate
+units = km
+Dimension: ('z',) = (0,)
+
+j2000_y
+Type = float32
+long_name = Spacecraft J2000 Y Coordinate
+units = km
+Dimension: ('z',) = (0,)
+
+j2000_z
+Type = float32
+long_name = Spacecraft J2000 Z Coordinate
+units = km
+Dimension: ('z',) = (0,)
+
+TP_latitude
+Type = float32
+long_name = Latitude of measurement tangent point
+units = degrees
+Dimension: ('z',) = (0,)
+
+TP_longitude
+Type = float32
+long_name = Longitude of measurement tangent point
+units = degrees
+Dimension: ('z',) = (0,)
+
+TP_SZA
+Type = float32
+long_name = Solar zenith angle of measurement point
+units = degrees
+Dimension: ('z',) = (0,)
+
+TP_headingtoscisat
+Type = float32
+long_name = Heading back to spacecraft, at tangent point
+note = Heading direction [ 0, 360 ]
+units = degrees
+Dimension: ('z',) = (0,)
+
+TP_headingtosun
+Type = float32
+long_name = Heading to Sun, at tangent point
+note = Heading direction [ 0, 360 ]
+units = degrees
+Dimension: ('z',) = (0,)
+
+TP_localtime
+Type = float32
+long_name = Approximate local time at tangent point
+note = ( Time(UTC) + Longitude / 15 degrees )
+units = 
+Dimension: ('z',) = (0,)
+
+
