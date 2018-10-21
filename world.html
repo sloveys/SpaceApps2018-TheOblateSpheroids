@@ -3,22 +3,22 @@
 	<head>
 		<meta charset=utf-8>
 		<title>Climosphere</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="three.js-master\build\three.js"></script>
+	--><script src="three.js-master\build\three.js"></script>
+		<!--script src="https://d3js.org/d3.v5.min.js"></script-->
 		<script src="three.js-master\examples\js\controls\OrbitControls.js"></script>
+		<link rel="C2H6" href="data\OUTPUT\C2H6\2007">
 		<style>
 			canvas { margin: 0; width: 100vw; height: 100vh; display: block; }
 			.container {
-				z-index: 1;
 		  	position: relative;
 		  	text-align: center;
 		  	color: white;
 				pointer-events: none;
 			}
 			.world {
-				z-index: -1;
 		    position: absolute;
 		    top: 0;
 		    left: 0;
@@ -28,6 +28,7 @@
 		    padding: 0;
 			}
 			.title {
+				color: white;
 				position: absolute;
 		    top: 20px;
 		    left: 10px;
@@ -35,19 +36,22 @@
 				padding: 0;
 			}
 			.mol {
-				z-index: -2;
+				z-index: 1000;
+				color: black;
 				position: absolute;
 		    top: 30px;
 		    right: 10px;
 			}
 		</style>
 	</head>
-  <body style="margin: 0; display: block;">
-		<div class="container">
-			<h2 class="title">Climosphere</h2>
-			<select class="mol" name="Molecules" id="Molecules">
-			</select>
-	    <script class="world" src="world.js"></script>
-		</div>
+  <body>
+		<h2 class="title">Climosphere</h2>
+		<select class="mol" name="Molecules" id="Molecules">
+		</select>
+		<select style="right: 100px;" class="mol" name="Years" id="Years">
+			<option value="2007">2007</option>
+			<option value="2008">2008</option>
+		</select>
+    <script class="world" src="world.js"></script>
   </body>
 </html>

@@ -7,22 +7,64 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(viewAngle, width/height, nearClipping, farClipping);
 var renderer = new THREE.WebGLRenderer();
 
-var mols = ["test", "test 2"];
-//var fs = require('fs');
-//var folders = fs.readdirSync('/data/OUTPUT/');
+var mols = ["C2H2", "C2H6", "CCl2F2", "CCl3F", "CCl4", "CH3Cl", "CH4",
+            "CHF2Cl", "ClONO2", "CO", "COF2", "H2CO", "H20", "H2O2", "HCL"];
 
-var select = document.getElementById("Molecules");
+var molSelect = document.getElementById("Molecules");
 for (var i = 0; i < mols.length; i++) {
   var newOption = document.createElement("option");
   newOption.text = mols[i];
-  newOption.value = 'some value if you want it';
-  select.appendChild(newOption);
+  newOption.value = mols[i];
+  molSelect.appendChild(newOption);
+}
+var yearSelect = document.getElementById("Years");
+
+function getCSV() {
+  if (window.FileReader) {
+    var mol = "C2H6";//molSelect.options[molSelect.selectedIndex].value;
+    var year = "2007";//yearSelect.options[yearSelect.selectedIndex].value;
+    var fileName = "/data/OUTPUT/" + mol + "/" + year + ".csv";
+
+    /*var reader = new FileReader();
+    reader.onload = loadHandler;
+    reader.onerror = errorHandler;
+
+    reader.readAsText(file);
+    d3.csv(file, function(data) {
+      genEnvMap([[0,0,0.8]]);
+      //loadHandler(data);
+    }, function(error, rows) {
+    });*/
+
+  }
+}
+
+function loadHandler(data) {
+  var lines = data.split(/\r\n|\n/);
+  var minMeas = 0;
+  var maxMeas = 0;
+  var measurments = [];
+  for (var i=0; i < lines.length; i++) {
+    var row = lines[i].split(",");
+    newMeas = [Number(row[1]), Number(row[2]), Number(row[0])];
+    if (newMeas[2] > maxMeas) {
+      maxMeas = newMeas[2];
+    }
+    if (newMeas[2] < 0) {
+      newMeas[2] = 0;
+    }
+    measurments.push(newMeas);
+  }
+  for (var i=0; i < measurments.length; i++) {
+    measurments[i][2] /= maxMeas;
+  }
+  genEnvMap(measurments);
 }
 
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
-var controls = new THREE.OrbitControls(camera);
+var controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enablePan = false;
 var blockedAngle = 0.25;
 controls.minPolarAngle = blockedAngle;
@@ -120,9 +162,7 @@ function genEnvMap(envData) {
 
   animate();
 }
-var evd = [[0,0,0.9], [180,-80,0.8],
-          [0,-80,0.4], [20,20,0.4]];
-genEnvMap(evd);
+getCSV();
 
 function animate() {
   requestAnimationFrame(animate);
