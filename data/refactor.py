@@ -36,7 +36,10 @@ def main():
 				
 				fileLocation = os.path.join(gasFilesPath, "../")
 				readmeFile = [f for f in os.listdir(fileLocation) if os.path.isfile(os.path.join(fileLocation, f))]
-				fileLocation = os.path.join(fileLocation, readmeFile[0])
+				try:
+					fileLocation = os.path.join(fileLocation, readmeFile[0])
+				except:
+					continue
 				
 				with open(fileLocation, 'r') as searchfile:
 					for line in searchfile:
@@ -71,10 +74,21 @@ def main():
 				
 				
 					for fileName in gasFiles:
+						
+						gasType = fileName
+						gasType = re.sub("\.csv", '', gasType)
+						gasTypeTester = gasType
+						dummy = 0
+						
+						try:
+							gasTypeTester = gasTypeTester[len(gasTypeTester)-4:]
+							if gasTypeTester == "_err":
+								continue
+						except:
+							dummy = 1
 						sum = 0
 						averageOfGas = 0
 						readingCount = 0
-						
 						with open(os.path.join(gasFilesPath, fileName), 'r') as gasFile:
 							for line in gasFile:
 								if '-999' in line:
@@ -89,17 +103,8 @@ def main():
 							averageOfGas = sum / readingCount
 						else:
 							averageOfGas= -999
-						gasType = fileName
-						gasType = re.sub("\.csv", '', gasType)
-						gasTypeTester = gasType
-						dummy = 0
 						
-						try:
-							gasTypeTester = gasTypeTester[len(gasTypeTester)-4:]
-							if gasTypeTester == "_err":
-								continue
-						except:
-							dummy = 1
+						
 						
 						fileSavePath = os.path.join(OUTPATH, gasType)
 						
