@@ -5,6 +5,7 @@ import re
 import os
 import glob
 import filecmp
+import shutil
 
 
 PATH = "C:/Users/Alejandro/Documents/space/SpaceApps2018-TheOblateSphereoids/data/CSV"
@@ -12,10 +13,18 @@ PATH = "C:/Users/Alejandro/Documents/space/SpaceApps2018-TheOblateSphereoids/dat
 OUTPATH = "C:\Users\Alejandro\Documents\space\SpaceApps2018-TheOblateSpheroids\data\OUTPUT"
 
 def main():
-    print PATH
-    for path, dirs, files in os.walk("."):
-        print path
-        for dirname in dirs:
+
+	for someFile in os.listdir(OUTPATH):
+		file_path = os.path.join(OUTPATH, someFile)
+		try:
+			if os.path.isfile(file_path):
+				os.unlink(file_path)
+			elif os.path.isdir(file_path): shutil.rmtree(file_path)
+		except Exception as e:
+			print e
+			
+	for path, dirs, files in os.walk("."):
+		for dirname in dirs:
 			if (dirname == "Data-L2_retreival_grid"):
 				latitude = 0
 				longitude = 0
@@ -45,9 +54,7 @@ def main():
 							
 							dateTime = re.sub('\:','_', dateTime)
 							dateTime = re.sub('\.','_', dateTime)
-							print dateTime
-							print date
-							print year
+
 						elif 'latitude =' in line:
 							latitude = line
 							latitude = re.sub('\latitude = ', '', latitude)
@@ -60,13 +67,10 @@ def main():
 							
 				
 				
-				outputPath = os.path.join(OUTPATH, dateTime + ".csv")
-				print outputPath
-				with open(outputPath, 'a') as outputFile:
+			
 				
 				
 					for fileName in gasFiles:
-						gasFileWriter = csv.writer(outputFile, delimiter = ',')
 						sum = 0
 						averageOfGas = 0
 						readingCount = 0
@@ -83,13 +87,33 @@ def main():
 									
 						if readingCount != 0:
 							averageOfGas = sum / readingCount
-							print "Average of [" + fileName + "] = " + str(averageOfGas)
+						else:
+							averageOfGas= -999
 						gasType = fileName
 						gasType = re.sub("\.csv", '', gasType)
-						print gasType
-						gasFileWriter.writerow([gasType, averageOfGas, longitude, latitude])
+						gasTypeTester = gasType
+						dummy = 0
+						
+						try:
+							gasTypeTester = gasTypeTester[len(gasTypeTester)-4:]
+							if gasTypeTester == "_err":
+								continue
+						except:
+							dummy = 1
+						
+						fileSavePath = os.path.join(OUTPATH, gasType)
+						
+						
+						try:
+							os.mkdir(fileSavePath)
+						except:
+							dummy = 1
+						with open(os.path.join(fileSavePath, year + ".csv"), 'a') as summaryFile:
+							summaryFileWriter = csv.writer(summaryFile, delimiter = ',')
+							summaryFileWriter.writerow([averageOfGas, latitude, longitude])
+						
+						
 				
-				outputFiles = [f for f in os.listdir(OUTPATH) if os.path.isfile(os.path.join(OUTPATH, f))]
 				
 
 if __name__ == '__main__':
