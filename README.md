@@ -10,6 +10,9 @@ This project graphs the relative measurements from the Canada's SCISAT on a glob
 
 The point of this project is to help the general public visualize SCISAT's data.
 
-Tested browsers:
--Ran on Firefox and Edge
--Did not run on Chrome and Explored (likely a problem with OpenGL target)
+Tested browsers (Fails likely due to OpenGL target):
+
+Ran successfully | Failed to render
+---------------- | ----------------
+Firefox          | Chrome
+Edge             | Internet Explorer
