@@ -148,7 +148,6 @@ function genEnvMap(envData) {
 
   animate();
 }
-//getCSV();
 
 function animate() {
   requestAnimationFrame(animate);
