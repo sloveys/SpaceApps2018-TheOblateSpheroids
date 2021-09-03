@@ -61,7 +61,7 @@ controls.update();
 
 var earthGeometry = new THREE.SphereGeometry(1.0, 64, 64);
 var earthMaterial = new THREE.MeshPhongMaterial({
-  map: THREE.ImageUtils.loadTexture('assets/2_no_clouds_8k.jpg'),
+  map: THREE.ImageUtils.loadTexture('./assets/2_no_clouds_8k.jpg'),
   shininess: 0.5});
 var earth = new THREE.Mesh(earthGeometry, earthMaterial);
 earth.position.z = 0;
